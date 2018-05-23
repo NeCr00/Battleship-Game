@@ -27,21 +27,25 @@ public class Game {
             cor = Game.getInput();
             Carrier Ca = new Carrier(5, Game.getOrienation(), cor);
             check = User.placeShip(Ca, cor);
+            Board.drawboards(User.getB().getPin(), Comp.getB().getPin());
 
             System.out.println("Give coordinates X Y for Battleship (size 4)");
             cor = Game.getInput();
             Battleship Ba = new Battleship(4, Game.getOrienation(), cor);
             check = User.placeShip(Ba, cor);
+            Board.drawboards(User.getB().getPin(), Comp.getB().getPin());
 
             System.out.println("Give coordinates X Y for Cruiser (size 3)");
             cor = Game.getInput();
             Cruiser Cr = new Cruiser(3, Game.getOrienation(), cor);
             check = User.placeShip(Cr, cor);
+            Board.drawboards(User.getB().getPin(), Comp.getB().getPin());
 
             System.out.println("Give coordinates X Y for Battleship (size 2)");
             cor = Game.getInput();
             Destroyer De = new Destroyer(2, Game.getOrienation(), cor);
             check = User.placeShip(De, cor);
+            Board.drawboards(User.getB().getPin(), Comp.getB().getPin());
 
             System.out.println("Give coordinates X Y for Battleship (size 3)");
             cor = Game.getInput();
@@ -69,6 +73,9 @@ public class Game {
             }
 
         } while (check);
+        
+        Comp.getStats();
+        User.getStats();
 
     }
 
