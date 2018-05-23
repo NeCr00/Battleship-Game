@@ -9,22 +9,10 @@ package naumaxia;
  *
  * @author giann
  */
-public class Carrier extends Ship{
+public class Carrier extends Ship {
 
     public Carrier(int shipSize, char direction, int[] cellStart) {
         super(shipSize, direction, cellStart);
     }
 
-    
-
-    
-    
-
-    
 }
-
-
-
-
-
-

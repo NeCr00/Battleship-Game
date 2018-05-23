@@ -15,15 +15,4 @@ public class Cruiser extends Ship {
         super(shipSize, direction, cellStart);
     }
 
-   
-
-    
-    
-    
 }
-
-
-
-
-
-

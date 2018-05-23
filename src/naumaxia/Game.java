@@ -73,7 +73,7 @@ public class Game {
             }
 
         } while (check);
-        
+
         Comp.getStats();
         User.getStats();
 

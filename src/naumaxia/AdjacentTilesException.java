@@ -11,14 +11,8 @@ package naumaxia;
  */
 public class AdjacentTilesException extends Exception {
 
-   
-
     AdjacentTilesException() {
         throw new UnsupportedOperationException("Ships have to differ at least one cell"); //To change body of generated methods, choose Tools | Templates.
     }
-    
-   
-    
+
 }
-
-

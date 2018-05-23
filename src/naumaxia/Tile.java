@@ -1,25 +1,23 @@
-
 package naumaxia;
 
+import static naumaxia.Tile.Type.SHIP;
 
 public class Tile {
-    
+
 //enum    
-   enum Type {
-   SEA("~"), SHIP("s"), HIT("x"),MISS("o");  // Named constants
-   
-   private final String symbol;      // Private variable
+    enum Type {
+        SEA("~"), SHIP("s"), HIT("x"), MISS("o");  // Named constants
+
+        private final String symbol;      // Private variable
 
         private Type(String symbol) {
             this.symbol = symbol;
         }
-        
-        
-   
+
     }
-   
- //Variables  
-    private int x , y;
+
+    //Variables  
+    private int x, y;
     private Type type;
 
     public Tile(int x, int y, Type type) {
@@ -27,8 +25,7 @@ public class Tile {
         this.y = y;
         this.type = type;
     }
-    
-   
+
     public int getX() {
         return x;
     }
@@ -52,19 +49,15 @@ public class Tile {
     public void setType(Type type) {
         this.type = type;
     }
-    
-    
-   void draw(boolean hidden)
-   {   
-      if(hidden)                                // Getter
-          System.out.print(type.symbol);
-      else 
-          System.out.print("~");
-          
-   }
-    
-    
+
+    void draw(boolean hidden) {
+        if (hidden && type==SHIP) // Getter
+        {
+            System.out.print("~");
+        } else {
+           System.out.print(type.symbol);
+        }
+
+    }
+
 }
-
-
-

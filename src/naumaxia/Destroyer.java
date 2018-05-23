@@ -15,21 +15,4 @@ public class Destroyer extends Ship {
         super(shipSize, direction, cellStart);
     }
 
-   
-    
-
-    
-
-
-    
-
-   
-
-   
 }
-
-
-
-
-
-

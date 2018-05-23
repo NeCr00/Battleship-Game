@@ -15,21 +15,4 @@ public class Battleship extends Ship {
         super(shipSize, direction, cellStart);
     }
 
-    
-
-   
-
-    
-
-    
-
-    
-    
-    
 }
-
-
-
-
-
-

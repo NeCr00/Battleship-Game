@@ -9,15 +9,10 @@ package naumaxia;
  *
  * @author giann
  */
-public class OversizeException extends Exception{
+public class OversizeException extends Exception {
 
-   
     OversizeException() {
         throw new UnsupportedOperationException("Hey , you are out of bounds !"); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }
-
-
-

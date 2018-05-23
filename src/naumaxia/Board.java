@@ -47,7 +47,7 @@ public class Board {
             System.out.print(i + " ");
 
             for (int j = 0; j < 10; j++) {
-                pin1[i][j].draw(true);
+                pin1[i][j].draw(false);
                 System.out.print("\t");
             }
 

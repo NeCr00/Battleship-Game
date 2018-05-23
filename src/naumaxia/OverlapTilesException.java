@@ -11,12 +11,8 @@ package naumaxia;
  */
 public class OverlapTilesException extends Exception {
 
-
     OverlapTilesException() {
         throw new UnsupportedOperationException("You can't put one ship into another !"); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
-
-
-
