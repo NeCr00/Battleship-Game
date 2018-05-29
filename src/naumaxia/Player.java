@@ -5,6 +5,7 @@
  */
 package naumaxia;
 
+import java.util.ArrayList;
 import static naumaxia.Tile.Type.HIT;
 import static naumaxia.Tile.Type.MISS;
 import static naumaxia.Tile.Type.SEA;
@@ -39,32 +40,69 @@ public class Player {
         return (sh.PlaceShip(b, true));
 
     }
-
-    Tile[][] fire(Tile b[][], int pin[]) {
+    private static int k=0,j=0,l=0;
+    static ArrayList <Tile> tiles = new ArrayList();
+    static boolean check=false;
+    static Tile start;
+    
+    
+    Tile[][] fire(Tile board[][], int pin[]) {
         shots++;
 
         System.out.println(name + " ");
+        
+        if("Computer".equals(name)&& check){
+            if(k < tiles.size()){
+            pin[0]=tiles.get(k).getX();
+            pin[1]=tiles.get(k).getY();}
+                 
+        }
 
-        if (b[pin[0]][pin[1]].getType() == SHIP) {
+        if (board[pin[0]][pin[1]].getType() == SHIP) {
             sucshots++;
-            b[pin[0]][pin[1]].setType(HIT);
+            board[pin[0]][pin[1]].setType(HIT);
             System.out.print("Hit");
-        } else if (b[pin[0]][pin[1]].getType() == SEA) {
+            if("Computer".equals(name)){
+                tiles =b.getAdjacentTiles(board[pin[0]][pin[1]], board);
+                j++;
+                check = true;
+            }
+        } else if (board[pin[0]][pin[1]].getType() == SEA) {
             miss++;
-            b[pin[0]][pin[1]].setType(MISS);
+            board[pin[0]][pin[1]].setType(MISS);
             System.out.print("Miss");
+            if("Computer".equals(name) ){
+                if(check)
+                k++;
+                if(k>3||j>1){
+                    k=0;
+                    j=0;
+                    check=false;}
+                
+            }
         } else {
             rep++;
-
-            if (b[pin[0]][pin[1]].getType() == MISS) {
+            
+            if (board[pin[0]][pin[1]].getType() == MISS) {
                 System.out.print("Already Miss");
             } else {
                 System.out.print("Already Hit");
             }
+            if("Computer".equals(name) ){
+                if(check)
+                k++;
+                if(k>3||j>1){
+                    k=0;
+                    j=0;
+                    check=false;}
+                
+            }
+            
         }
         System.out.println();
+       
 
-        return b;
+        return board;
 
     }
 

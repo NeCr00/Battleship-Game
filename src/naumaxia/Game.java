@@ -82,15 +82,13 @@ public class Game {
     static Scanner sc = new Scanner(System.in);
 
     static int[] getInput() {
-
+Scanner sc = new Scanner(System.in).useDelimiter("\\D*\\D");
         System.out.println("Give valid[X] [Y] coordinates (0-9) for fire :");
         boolean valid = true;
         int pin[] = new int[2];
         do {
 
-            System.out.println("Give X :");
             pin[0] = sc.nextInt();
-            System.out.println("Give Y :");
             pin[1] = sc.nextInt();
             if (pin[0] >= 0 && pin[0] < 10 && pin[1] >= 0 && pin[1] < 10) {
                 valid = false;
