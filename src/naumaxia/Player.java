@@ -29,15 +29,16 @@ public class Player {
         this.rep = 0;
     }
 
-    Board b = new Board();
+    Board b = new Board(); 
+    
 
-    void placeAllShips() throws OverlapTilesException, OversizeException, AdjacentTilesException {
-        b.placeAllShips();
+    void placeAllShips() throws OverlapTilesException, OversizeException, AdjacentTilesException { 
+        b.placeAllShips(); // kalei tin placeAllships tis klasis board 
     }
 
     @SuppressWarnings("empty-statement")
     boolean placeShip(Ship sh, int cor[]) throws OverlapTilesException, AdjacentTilesException, OversizeException {
-        return (sh.PlaceShip(b, true));
+        return (sh.PlaceShip(b, true)); // to antikeimeno ship kalei tin placeship gia topothetisi tou ploiou. Epistrefei true h false .
 
     }
     private static int k=0,j=0,l=0;
@@ -46,7 +47,7 @@ public class Player {
     static Tile start;
     
     
-    Tile[][] fire(Tile board[][], int pin[]) {
+    Tile[][] fire(Tile board[][], int pin[]) { // dexetai ton pinaka toy thymatos kai tis syntetagmenes poy tha xtupisoume .
         shots++;
 
         System.out.println(name + " ");
@@ -58,7 +59,7 @@ public class Player {
                  
         }
 
-        if (board[pin[0]][pin[1]].getType() == SHIP) {
+        if (board[pin[0]][pin[1]].getType() == SHIP) {   // elegxei an to keli tou pinaka board exei ploio
             sucshots++;
             board[pin[0]][pin[1]].setType(HIT);
             System.out.print("Hit");
@@ -67,7 +68,7 @@ public class Player {
                 j++;
                 check = true;
             }
-        } else if (board[pin[0]][pin[1]].getType() == SEA) {
+        } else if (board[pin[0]][pin[1]].getType() == SEA) {  // elegxei an to keli tou pinaka board einai typou sea
             miss++;
             board[pin[0]][pin[1]].setType(MISS);
             System.out.print("Miss");
@@ -102,7 +103,7 @@ public class Player {
         System.out.println();
        
 
-        return board;
+        return board; // epistrefei ton kainourgio pinaka
 
     }
 

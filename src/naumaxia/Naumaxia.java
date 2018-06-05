@@ -10,6 +10,7 @@ package naumaxia;
  * @author giann
  */
 public class Naumaxia {
+    //Main class
 
     public static void main(String[] args) throws OverlapTilesException, OversizeException, AdjacentTilesException {
 

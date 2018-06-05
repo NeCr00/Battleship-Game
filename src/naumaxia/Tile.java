@@ -5,7 +5,7 @@ import static naumaxia.Tile.Type.SHIP;
 public class Tile {
 
 //enum    
-    enum Type {
+    enum Type { 
         SEA("~"), SHIP("s"), HIT("x"), MISS("o");  // Named constants
 
         private final String symbol;      // Private variable
@@ -26,6 +26,7 @@ public class Tile {
         this.type = type;
     }
 
+    //Getter and Setter
     public int getX() {
         return x;
     }
@@ -50,12 +51,12 @@ public class Tile {
         this.type = type;
     }
 
-    void draw(boolean hidden) {
+    String draw(boolean hidden) { //methodos poy epistrefei to symbolo pou exei to tile
         if (hidden && type==SHIP) // Getter
         {
-            System.out.print("~");
+            return "~";
         } else {
-           System.out.print(type.symbol);
+           return type.symbol;
         }
 
     }

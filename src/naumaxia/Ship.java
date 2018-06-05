@@ -15,16 +15,19 @@ import static naumaxia.Tile.Type.SHIP;
  */
 public abstract class Ship {
 
-    protected int shipSize;
-    protected int[] cellStart = new int[2];
-    protected char direction;
+    // Variables
+    private int shipSize; //megethos ploiou
+    private int[] cellStart = new int[2]; // to arxiko keli toy ploiou
+    private char direction; // h kateuthinsi tou ploiou
 
+    //constructor
     public Ship(int shipSize, char direction, int[] cellStart) {
         this.shipSize = shipSize;
         this.direction = direction;
         this.cellStart = cellStart;
     }
 
+    // setter & getter 
     public int getShipSize() {
         return shipSize;
     }
@@ -49,33 +52,36 @@ public abstract class Ship {
         this.direction = direction;
     }
 
-    Boolean PlaceShip(Board board, Boolean msg) throws OverlapTilesException, OversizeException, AdjacentTilesException {
+   // methodos pou dexetai enan disdiastato pinaka kai ena boolean msg kai topotheti to ploio . To msg deixnei ean tha energopoiithoun ta exception  
+    Boolean PlaceShip(Board board, Boolean msg) throws OverlapTilesException, OversizeException, AdjacentTilesException { 
         boolean success = true;
         ArrayList<Tile> b = new ArrayList();
         Tile[][] pin = new Tile[10][10];
         pin = board.getPin();
         int k = 0, l = 0;
 
-        if (direction == 'H' && cellStart[1] + shipSize > pin.length - 1) {
+        if (direction == 'H' && cellStart[1] + shipSize > pin.length - 1) { //elegxei an einai ektos pinaka i topothetisi tou ploiou
             success = false;
             if (msg) {
                 throw new OversizeException();
             }
-        } else if (direction == 'V' && cellStart[0] + shipSize > pin.length - 1) {
+        } else if (direction == 'V' && cellStart[0] + shipSize > pin.length - 1) { //elegxei an einai ektos pinaka i topothetisi tou ploiou
             success = false;
             if (msg) {
                 throw new OversizeException();
             }
         } else {
+            if (pin[cellStart[0]][cellStart[1]].getType() != SEA) { //elegxei an to arxiko keli exei idi ploio 
+                success = false;
+                if (msg) {
+                    throw new OverlapTilesException();
+                }
+            }
+
             int i = 0;
-            while (i < shipSize) {
-                if (pin[cellStart[0]][cellStart[1]].getType() != SEA) {
-                    success = false;
-                    if (msg) {
-                        throw new OverlapTilesException();
-                    }
-                    break;
-                } else if (direction == 'H') {
+            while (i < shipSize) {   //loop ,pou gia kathe keli pairnei ta geitonika toy tile me tin synartisi getAdjacementTiles kai elegxei an paraviazei tis synthikes topothetisis
+
+                if (direction == 'H') {
                     l = i;
                 } else {
                     k = i;
@@ -96,7 +102,7 @@ public abstract class Ship {
             }
         }
 
-        if (success) {
+        if (success) {  //elegxei an paraviastike kapoia synthiki apo tin parapano kai analoga topothtetei to ploio 
             for (int i = 0; i <= shipSize - 1; i++) {
                 if (direction == 'H') {
                     pin[cellStart[0]][cellStart[1] + i].setType(SHIP);
@@ -105,7 +111,7 @@ public abstract class Ship {
                 }
 
             }
-            board.setPin(pin);
+            board.setPin(pin); //gyrnaei ton pinaka kai ton thetei ws kainourgio
         }
         return success;
 

@@ -11,7 +11,7 @@ package naumaxia;
  */
 public class AdjacentTilesException extends Exception {
 
-    AdjacentTilesException() {
+    AdjacentTilesException() { // kalei ton constructor kai typwnei to mhnyma
         throw new UnsupportedOperationException("Ships have to differ at least one cell"); //To change body of generated methods, choose Tools | Templates.
     }
 
