@@ -5,6 +5,8 @@
  */
 package naumaxia;
 
+import java.awt.Color;
+import java.awt.Font;
 import naumaxia.Tile.Type;
 import java.util.*;
 import javax.swing.JFrame;
@@ -41,11 +43,11 @@ public class Board {
     public void setPin(Tile[][] pin) { // methodos pou allazei ton pinaka
         this.pin = pin;
     }
-
+static JFrame f=new JFrame();
 //Ektyposi pinaka
    public static void drawboards(Tile board1[][], Tile board2[][]) { // dexetai ton pinaka tou user kai tou computer
 
-JFrame f=new JFrame(); // dhmiourgei ton  aspro pinaka
+ // dhmiourgei ton  aspro pinaka
 String[][] data =new String[23][11]; 
 
 String[] column={"","","   ","   ","   ","YOU","   ","   ","   ","   ",""};
@@ -66,7 +68,7 @@ String[] column={"","","   ","   ","   ","YOU","   ","   ","   ","   ",""};
         }
         for (int i =0 ; i < 11; i++) {
             if(i==5){
-                data[11][i]="  COMPUTER";
+                data[11][i]="ENEMY";
             }
            else data[12][i] ="   ";
         }
@@ -87,12 +89,16 @@ String[] column={"","","   ","   ","   ","YOU","   ","   ","   ","   ",""};
 
         }
         JTable jt=new JTable(data,column);
-        jt.setBounds(30,40,100,500);
+        jt.setBounds(50,60,100,500);
         JScrollPane sp=new JScrollPane(jt);
+        jt.setBackground(Color.blue);
         f.add(sp);
         f.setSize(600,480);
+        f.setBackground(Color.BLACK);
         f.setVisible(true);
+        
 
+jt.setFont(new Font("Serif",Font.BOLD,18));
     }
   
     //Dhmiourgia antikeimenwn typou ship . Prospelasi ton ploiwn ston pinaka me tin xrisi tis methodou placeship
